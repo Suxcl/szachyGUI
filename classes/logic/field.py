@@ -1,5 +1,5 @@
-from classes.dicts import *
-from classes.piece import *
+from classes.logic.dicts import *
+from classes.logic.piece import *
 
 
 

@@ -1,0 +1,4 @@
+king movement 
+File "c:\Users\Sak\Documents\GitHub\szachyGUI\classes\piece.py", line 406, in ReturnPossibleMoves
+    if(board[x,y].isEmpty()): moves.append((x,y))
+

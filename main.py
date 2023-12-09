@@ -1,315 +1,263 @@
 import pygame
 import sys
+import pygame_gui
 
-from classes.chessboard import chessboard
-from classes.dicts import *
+
+
+from classes.logic.chessboard import chessboard
+from classes.logic.dicts import *
 from classes.pieces_path import pieces_paths
 from classes.constants import *
-from classes.colors import *
+from classes.static_colors import *
+from classes.miscellaneous import* 
+from classes.chessBoardDrawfunctions import *
+from classes.cursorHandling import *
+
 
 import logging
 logging.basicConfig(filename='example.log',format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p', encoding='utf-8', level=logging.DEBUG)
 logging.debug("Launching Main.py")
 
+pygame.font.init()
+FONT = pygame.font.Font(None, 24)
 
-for a in CHESSBOARD_SQUARES_POS:
-    print(a)
+def draw_button(screen, x, y, width, height, text):
+    print('drawing rect as button: ',screen, x, y, width, height, text)
+    # Check for mouse hover
+    mouse_x, mouse_y = pygame.mouse.get_pos()
+    hover = x < mouse_x < x + width and y < mouse_y < y + height
 
+    # Draw the button
+    button_color = BUTTON_HOVER if hover else BUTTON_NORMAL
+    pygame.draw.rect(screen, button_color, (x, y, width, height),0,5)
 
-
-
-
-# c--- ustom cursor handling ---
-
-def changeCursorToPiece(piece):
-    piece_img_path = pieces_paths[piece]
-    surf = pygame.image.load(piece_img_path).convert_alpha()
-    cursor = pygame.cursors.Cursor((15,15), surf)
-    pygame.mouse.set_cursor(cursor)
-
-def changeCursorToHand():
-    pygame.mouse.set_cursor(pygame.SYSTEM_CURSOR_HAND)
-
-# --- miscellaneous ---
-
-def getColorOfSquare(x,y):
-    return BLACK if (x + y) % 2 == 0 else WHITE
-
-def getRectForCoordinates(x,y):
-    return pygame.Rect(y * SQUARE_SIZE, x * SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE)
-
-def getCircleForCoordinates(x,y, color):
-    return pygame.circle(color, )
-
-def checkIfSquareHasPiece(x,y, cb):
-    if(cb[x][y]!=''): return True
-    return False
+    # Draw the text
+    button_text = FONT.render(text, True, TEXT_WHITE)
+    text_rect = button_text.get_rect(center=(x + width // 2, y + height // 2))
+    screen.blit(button_text, text_rect)
 
 
-# --- square drawings ---
+    # menu_display = pygame.Rect(0,0,WIDTH*10, HEIGHT)
+    menu_display = pygame.Surface((WIDTH*10, HEIGHT),0,0)
 
-# defining colors of the chessboard
-def draw_chessboard(screen, chessboard):
-    for row in range(ROWS):
-        for col in range(COLS):
-            color = getColorOfSquare(col,row)
-            rect = getRectForCoordinates(row,col)
-            pygame.draw.rect(screen, color, rect)
-            piece = chessboard[row][col]
-            if(piece != ''):
-                img = pygame.image.load(pieces_paths[piece]).convert_alpha()
-                screen.blit(img, rect)
+    menu_display.background(WHITE)
+    screen.blit(screen, menu_display)
 
-# define buttons for clicking purposes
-def draw_chessboard_buttons():
-    buttons = []
-    for row in range(ROWS):
-        for col in range(COLS):                
-            button_rect = getRectForCoordinates(row,col)
-            buttons.append(button_rect)
-    print("Buttons", buttons)
-    return buttons
 
-def clearSquare(screen, square):
-    x = square[0]
-    y = square[1]
-    color = getColorOfSquare(x,y)
-    rect = getRectForCoordinates(x,y)
-    pygame.draw.rect(screen, color, rect)
-    return
-
-def rednerPieceInSquare(screen, square, piece):
-    x = square[0]
-    y = square[1]
-    color = getColorOfSquare(x,y)
-    rect = getRectForCoordinates(x,y)
-    pygame.draw.rect(screen, color, rect)
-    img = pygame.image.load(pieces_paths[piece]).convert_alpha()
-    screen.blit(img, rect)
-
-def highlightSquareWithPiece(screen, square, piece):
-    x = square[0]
-    y = square[1]
-    color = GREEN
-    rect = getRectForCoordinates(x,y)
-    pygame.draw.rect(screen, color, rect)
-    img = pygame.image.load(pieces_paths[piece]).convert_alpha()
-    screen.blit(img, rect)
-    return rect
-
-# def highlightSquare(screen, x,y):
-#     color = GREEN
-#     rect = getRectForCoordinates(x,y)
-#     pygame.draw.rect(screen, color, rect)
-
-# def unhighlightSquareWithPiece(screen, x,y,piece):
-#     color = getColorOfSquare(x,y)
-#     rect = getRectForCoordinates(x,y)
-#     pygame.draw.rect(screen, color, rect)
-#     img = pygame.image.load(pieces_paths[piece]).convert_alpha()
-#     screen.blit(img, rect)
-
-def unhighlightSquare(screen,square):
-    x = square[0]
-    y = square[1]
-    color = getColorOfSquare(x,y)
-    rect = getRectForCoordinates(x,y)
-    pygame.draw.rect(screen, color, rect)
-
-def highlightSquareAsMove(screen, square):
-    x = square[0]
-    y = square[1]
-    color = GRAY
-    # cir = getCircleForCoordinates(x,y, color)
-    rect = getRectForCoordinates(x,y)
-    pygame.draw.circle(screen, color, (y*SQUARE_SIZE+SQUARE_SIZE/2, x*SQUARE_SIZE+SQUARE_SIZE/2), SQUARE_SIZE/6) 
-
-def highlightSquareAsAttack(screen, square):
-    x = square[0]
-    y = square[1]
-    color = RED
-    cir = getCircleForCoordinates(x,y, color)
-    pygame.draw.circle(screen, color, cir)
-
-def cancelSelectedSquareHighlight(screen, square, piece, moves, attacks, attack_pieces):
-    rednerPieceInSquare(screen,square, piece)
-    for a in moves:
-        clearSquare(screen,a)
-    for a in range(len(attacks)):
-        rednerPieceInSquare(screen, (attacks[a][0], attacks[a][1]), attack_pieces[a])
-    
-
-def joinSquaresToRefresh(selected, moves, attacks):
-    tmp = []
-    tmp.append(getRectForCoordinates(selected[0], selected[1]))
-    tmp+=moves
-    tmp+=attacks
-    return tmp
-
-def updateScreen(squares):
-    pygame.display.update(squares)
 # --- main ---
-
 def main():
-
+    # creating chessboard class
     cb = chessboard()
-    cb.newBoard()
-    res = cb.returnBoard()
-
-    # for a in range(len(res)):
-    #     for b in range(len(res[a])):
-    #         print(res[a][b], a, b)
-
-    # for a in res:
-    #     print(a)
 
 
-    pygame.init() # x
+
+
+    pygame.init() 
+    
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
-    # cheesBoard_surface = pygame.surface.
-    pygame.display.set_caption("Chessboard with Buttons")
     clock = pygame.time.Clock()
+    pygame.display.set_caption("pygame Chess - Sak Jakub")
 
-    draw_chessboard(screen, res) 
+    # menu = pygame.Surface((WIDTH, HEIGHT))
+    
+
+    # rect = pygame.Rect(0,0,WIDTH,HEIGHT)
+    # pygame.draw.rect(menu, WHITE, rect)
+    # pygame.display.flip()
+    
+    # values for gameplay
     buttons = draw_chessboard_buttons()
+    selected_square = []        # selected square to move from
+    piece_in_square = None      # piece value from sq
+    moves = []                  # list of moves x,y coordinates
+    attacks = []                # list of attacks x,y coordinates
+    attacks_pieces = []             # list of pieces in attack positions
+    last_turn_choosen_field = None  # last turn data for clearing purposes
+    last_turn_des = None            # --||--    
+    last_turn_piece = None          # --||--
+    res = None
 
-    
-    
-    last_turn_choosen_field = None
-    last_turn_des = None
-
-    selected_square = []
-    piece_in_square = None
-    move_rect = []
-    attacks_rect = []
-    moves = []
-    attacks = []
-
-
-    
-
-# wybranie pionka - podswietlenie pola z pionekime, pokazanie mozliwych ruchów, niezrobienie nieczego jesli pionek należy do przecinweo gracza
-# ponownie kliknecie na wybranym polu zpowoduje odwybranie pionka
-# przesuniecie/klikniecie go na pole z możliwym ruchem - podswietlenie skąd i dokąd pinek sie ruszył, usuniecie pokazanych ruchów na planszy
-# ruch przeciwnika
-# 
-# w momencie kliknecia w pinek powinien on podac ruchy i powinny one zostal przedstawione na planszy
-# 
-
-    refereshed_once = False
-
-    while True:
+    is_running = True
+    while is_running:
         
-        squares_to_update = []
-
-        def refreshScreen():
-            pygame.display.update(squares_to_update)
-            squares_to_update = []
 
 
+        game_in_progress = False
+
+        clock.tick(30)
+
+        for a in range(len(MAIN_MENU_BUTTONS_POS)):
+            x,y = MAIN_MENU_BUTTONS_POS[a]
+            draw_button(screen, x,y, MAIN_MENU_BUT_WIDTH, MAIN_MENU_BUT_HEIGHT, MAIN_MENU_BUTTONS_NAMES[a])
 
         for event in pygame.event.get():
-            # closing game on clicking the red X
             if event.type == pygame.QUIT:
-                pygame.quit()
-                sys.exit()
-            # catching mouse down event
-            if event.type == pygame.MOUSEBUTTONDOWN:
+                is_running = False
             
-                if event.button == 1:  # Left mouse button
-                    pygame.mouse.set_cursor(pygame.SYSTEM_CURSOR_ARROW)
-                    x, y = event.pos
-                    for i, button in enumerate(buttons):
-                        if button.collidepoint(x, y):
-                            x_row = y // SQUARE_SIZE
-                            y_col = x // SQUARE_SIZE
-                            
-                            if(selected_square):
-                                # clear selected square and its moves
-                                cancelSelectedSquareHighlight(screen, selected_square, piece, moves, attacks, attacks_pieces)
-                                squares_to_update = joinSquaresToRefresh(selected_square, move_rect, attacks_rect)
-                                selected_square = []
-                            
-
-                            if(cb.checkIfFieldHasSameColorASCurrentPlayer(x_row, y_col)):
-
-                                # if(checkIfSquareHasPiece(x_row, y_col, res)):
-                                selected_square = (x_row, y_col)
-                                piece = res[x_row][y_col]
-                                piece_in_square = piece
-                                moves, attacks = cb.GetPossibleMoves(x_row, y_col)
-                                move_rect = []
-                                attacks_rect = []
-                                attacks_pieces = []
-                                    # FUN SquareSeleected?
-                                # chainging cursor to picked up piece
-                                changeCursorToPiece(piece)
-                                # changing color of selected swuare
-                                highlightSquareWithPiece(screen, selected_square, piece)
-                                # drawing possible moves 
-                                
-                                for c in moves:
-                                    move_rect.append(getRectForCoordinates(c[0],c[1]))
-                                    highlightSquareAsMove(screen, c)
-                                # drawing possibles attacks
-                                for c in attacks:
-                                    attacks_rect.append(getRectForCoordinates(c[0],c[1]))
-                                    attacks_pieces.append(res[a[0]][a[1]])
-                                    highlightSquareAsAttack(screen, c)
-                                
-
-                                squares_to_update = joinSquaresToRefresh(selected_square, move_rect, attacks_rect)
-
-                                
-
-                            print(f"Button clicked: {i} ({i // COLS}, {i % COLS})")
-            
-            if event.type == pygame.MOUSEBUTTONUP:
-                if event.button == 1:
-                    changeCursorToHand()
-                    # handling if cursor with piece is at move possible Square
-                    x, y = event.pos
-                    if(selected_square and selected_square == (x,y)):
-                        rect = getRectForCoordinates(selected_square[0], selected_square[1])
-
-                        if rect.collidepoint(x,y):
-                            cancelSelectedSquareHighlight(screen, selected_square, piece, moves, attacks, attacks_pieces)
-                            squares_to_update = joinSquaresToRefresh(selected_square, move_rect, attacks_rect)
-                            selected_square = []
-
-                    for pos in move_rect:
-                        if pos.collidepoint(x, y):
-                            x_row = y // SQUARE_SIZE
-                            y_col = x // SQUARE_SIZE
-                            print('clicked on posible move')
-                    for pos in move_rect:
-                        if pos.collidepoint(x, y):
-                            x_row = y // SQUARE_SIZE
-                            y_col = x // SQUARE_SIZE
-                            print('clicked on posible move')
+            if event.type == pygame_gui.UI_BUTTON_PRESSED:
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    print("clicked on start")
+                    cb.newBoard()
+                    res = cb.returnBoard()
+                    game_in_progress = True
+                    draw_chessboard(screen, res)
                     
-                    
-            if event.type in [pygame.WINDOWSHOWN, pygame.WINDOWENTER, pygame.WINDOWFOCUSGAINED, pygame.WINDOWRESTORED]:
-                pygame.display.flip()
-            
-            # if pygame.mouse.get_pressed()[0]:
-            #     try:
-            #         print("is hold")
-            #     except:
-            #         print("is realsed")
+
+
+
+
         
+
+        # screen.blit(menu, (0, 0))
+        pygame.display.update()
+
+
+
         
-        # print('to update',squares_to_update)
-        # pygame.display.flip()
-        # if False==refereshed_once:
-        #    pygame.display.update()
-        #    pygame.display.flip()
-        #    refereshed_once = True
-        if(squares_to_update):
-            print(squares_to_update)
-            pygame.display.update(squares_to_update)    
+
+        # game display
+        while game_in_progress:
+            time_delta = clock.tick(60)/1000.0
             squares_to_update = []
-        clock.tick(30)
+
+            for event in pygame.event.get():
+
+                # closing game on clicking the red X
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    sys.exit()
+
+
+                # catching mouse down event
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    print('event MOUSEBUTTONDOWn trigger')
+
+                    # Left mouse button event
+                    if event.button == 1:  
+                        x, y = event.pos
+                        x_row, y_col = y // SQUARE_SIZE,x // SQUARE_SIZE    
+                        print("event.button == 1 trigger")
+                        pygame.mouse.set_cursor(pygame.SYSTEM_CURSOR_ARROW)
+                    
+                        
+                        
+                        for i, button in enumerate(buttons):
+                            if button.collidepoint(x, y):
+                                print(f"Button clicked: {i} ({i // COLS}, {i % COLS})")
+                                # if there is selected square we need to clear 
+                                # clear selected square and its movesa dn attacks when
+                                # if(selected_square): 
+                                #     print("if selected_square in MOUSEBUTTONDOWN trigger")
+                                #     cancelSelectedSquareHighlight(screen, selected_square, piece, moves, attacks, attacks_pieces)
+                                #     squares_to_update = joinSquaresToRefresh(selected_square, move_rect, attacks_rect)
+                                #     selected_square = []
+        
+                                # checking if selected square belongs to current player
+                                # if true render possible moves and attacks for sleected piece
+                                if(cb.checkIfFieldHasSameColorASCurrentPlayer(x_row, y_col)):
+                                    selected_square = (x_row, y_col)
+                                    piece_in_square = res[x_row][y_col]
+                                    moves, attacks = cb.GetPossibleMoves(x_row, y_col)
+                                    
+                                    # chainging cursor to picked up piece
+                                    changeCursorToPiece(piece_in_square)
+                                    # changing color of selected square
+                                    highlightSquareWithPiece(screen, selected_square, piece_in_square)
+                                    
+                                    # drawing possible moves and atacks 
+                                    [highlightSquareAsMove(screen, c) for c in moves]
+                                    [highlightSquareAsAttack(screen, c) for c in attacks]
+
+                                    # adding squares for update
+                                    squares_to_update.append(getRectForSQ(selected_square))
+                                    squares_to_update+=transformListOfTuplesIntoRect(moves)
+                                    squares_to_update+=transformListOfTuplesIntoRect(attacks)
+                                    
+                
+                
+                
+                if event.type == pygame.MOUSEBUTTONUP:
+                    if event.button == 1 and selected_square!=[]:        
+                        
+                        x, y = event.pos
+                        x_to, y_to = y // SQUARE_SIZE, x // SQUARE_SIZE
+                        move_detected = False
+                        print(f"Button unclicked: {i} ({i // COLS}, {i % COLS})")
+
+                        # chaning cursor to simple hand
+                        changeCursorToHand()
+
+                        # checking if unlicked position corresponds to move
+                        for pos in transformListOfTuplesIntoRect(moves):
+                            if pos.collidepoint(x, y) and selected_square!=[]:
+                                print('clicked on posible move')
+                                move_detected = True
+
+                        for pos in transformListOfTuplesIntoRect(attacks):
+                            if pos.collidepoint(x, y) and selected_square!=[]:
+                                print('clicked on posible attack')
+                                move_detected = True
+                            
+                        if move_detected:
+
+                            # clearing last turn highlisht
+                            if(last_turn_des != None):
+                                print("Clearing last turn highlights", last_turn_choosen_field, last_turn_des, piece_in_square)
+                                clearSquare(screen, last_turn_choosen_field)
+                                rednerPieceInSquare(screen, last_turn_des, last_turn_piece)
+                                squares_to_update.append(getRectForSQ(last_turn_des))
+                                squares_to_update.append(getRectForSQ(last_turn_choosen_field))
+
+                            x_from,y_from = selected_square
+                            last_turn_des = (x_to, y_to)
+                            last_turn_choosen_field = selected_square
+
+                            # move 
+                            print("moving piece",piece_in_square, x_from, y_from, x_to, y_to)
+                            cb.newMoveFromAtoB(x_from, y_from, x_to, y_to)
+
+                            # clear squres for moves and rerender pieces on attacks
+                            [clearSquare(screen, a) for a in moves]
+                            for a in range(len(attacks)):
+                                x_tmp, y_tmp = attacks[a][0],attacks[a][1]
+                                rednerPieceInSquare(screen, (x_tmp, y_tmp), res[x_tmp][y_tmp])
+                            
+                            # highlight squares from and to
+                            highlightSquare(screen, selected_square)
+                            highlightSquareWithPiece(screen, last_turn_des, piece_in_square)
+                            last_turn_choosen_field = selected_square
+                            last_turn_piece = piece_in_square
+                            
+                            squares_to_update.append(getRectForSQ(selected_square))
+                            squares_to_update+=transformListOfTuplesIntoRect(moves)
+                            squares_to_update+=transformListOfTuplesIntoRect(attacks)
+                            selected_square = []
+                            move_detected = False
+
+                        # when piece is dragged onto illegal spot
+                        if(selected_square):
+                            cancelSelectedSquareHighlight(screen, selected_square, piece_in_square, moves, attacks, attacks_pieces)
+                            squares_to_update.append(getRectForSQ(selected_square))
+                            squares_to_update+=transformListOfTuplesIntoRect(moves)
+                            squares_to_update+=transformListOfTuplesIntoRect(attacks)
+                            selected_square = []
+                        
+                        
+
+                # for screen refreshing once on start                    
+                if event.type in [pygame.WINDOWSHOWN, pygame.WINDOWENTER, pygame.WINDOWFOCUSGAINED, pygame.WINDOWRESTORED]:
+                    pygame.display.flip()
+
+            
+            if(squares_to_update):
+                print("list to refresh:")
+                for a in squares_to_update:
+                    print(a, "|row -",a[1]//SQUARE_SIZE,'col -',a[0]//SQUARE_SIZE)
+                    
+                pygame.display.update(squares_to_update)   
+                squares_to_update = []
+                res = cb.returnBoard()
+        
 
 if __name__ == "__main__":
     main()

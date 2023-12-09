@@ -1,6 +1,6 @@
-from classes.field import *
-from classes.dicts import *
-from classes.piece import *
+from classes.logic.field import *
+from classes.logic.dicts import *
+from classes.logic.piece import *
 
 import time
 import logging
@@ -31,7 +31,13 @@ class chessboard:
         return yToHumanTranslation[y], 8-x
 
     def checkIfFieldHasSameColorASCurrentPlayer(self, x, y):
-        if(self.board[x][y].getColorOfFigure() == colors["white"] if self.move_count%2==0 else colors["black"]):
+        print("chessboard.py TEST checkIfFieldHasSameColorASCurrentPlayer")
+        print(x,y)
+        print(self.board[x][y])
+        print(self.board[x][y].getColorOfFigure())
+        print(self.move_count)
+        current_player = colors["white"] if self.move_count%2==0 else colors["black"]
+        if(self.board[x][y].getColorOfFigure() == current_player):
             return True
         else: return False
 
@@ -55,40 +61,6 @@ class chessboard:
         if((x,y) in self.attacks): return True
         else: return False
 
-    # code 1 = chossing figure
-    # code 2 = choosing dest
-    def InputValue(self, code):  
-
-        #big changes incoming
-
-
-        
-        if(code == 1): prompt = "       Choose figure: "
-        if(code == 2): prompt = "       Choose destination: "
-        inp = input(prompt)
-        # quiting game - saving state
-
-        # canceling current move
-        if inp in ['stop', 'cancel']: 
-            if(self.choosenField!=None): 
-                self.removePosibleMovesFromBoard() 
-                return True
-            else: return False
-        if inp in ['undo']: 
-            self.UndoMove()
-            return True
-        
-        if(self.checkRequiremtns(inp)): 
-            x,y = self.translateMoveTo01(inp[0],int(inp[1]))
-            if(code == 1):
-                return x,y
-            if(code == 2):
-                if(self.checkIfXYInMoves(x,y) == False and self.checkIfXYInAttacks(x,y) == False): 
-                    print(errors["BadInput_IllegalMove"])
-                    time.sleep(2)
-                    return 1
-                else: return x,y
-        else: return 1
         
     def newBoard(self, side = None):
         num = 0
@@ -168,6 +140,33 @@ class chessboard:
 
         self.board[x2][y2].setFieldOcupant(figure1)
         self.board[x1][y1].removeFieldOcupant()
+
+    
+
+    def newMoveFromAtoB(self,x1,y1,x2,y2,capture=None):
+        x,y = x1,y1
+        x_dest,y_dest = x2,y2
+
+           # checkForCastling handles moving pieces if return true
+        if (self.CheckForCastling(x,y,x_dest,y_dest) == False):
+            # if returns False normal move
+            if(self.board[x][y].getFigure().getFigChar() in [PiecesDict["King"],PiecesDict["Rock"],PiecesDict["Pawn"]]): 
+                self.board[x][y].getFigure().setMovedToTrue(self.move_count)
+
+            self.moveFromAtoB(x,y,x_dest,y_dest)
+
+            if(x_dest == 0 and self.move_count%2 == 0 and self.board[x_dest][y_dest].getFigure().getFigChar() == PiecesDict["Pawn"]):
+                self.board[x_dest][y_dest].setFieldOcupant(Queen(x_dest, y_dest, colors["white"]))
+            elif(x_dest == 7 and self.move_count%2 == 1 and self.board[x_dest][y_dest].getFigure().getFigChar() == PiecesDict["Pawn"]):
+                self
+            
+            self.removePosibleMovesFromBoard() 
+
+            if self.moveList[-1][5] != None and self.moveList[-1][5] in ['kw','kb']:
+                self.gameState = 0
+                self.winner = "white" if self.moveList[-1][5]=='kb' else "black"
+            
+        self.move_count+=1
 
     def removePosibleMovesFromBoard(self):
         self.moves = []

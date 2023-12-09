@@ -1,4 +1,4 @@
-from classes.dicts import *
+from classes.logic.dicts import *
 
 import logging
 logging.basicConfig(filename='example.log',format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p', encoding='utf-8', level=logging.DEBUG)
@@ -403,7 +403,7 @@ class King(Piece):
         for a in possiblities:
             x, y = a
             if not(x < 0 or x > 7 or y < 0 or y > 7):
-                if(board[x,y].isEmpty()): moves.append((x,y))       
+                if(board[x][y].isEmpty()): moves.append((x,y))       
                 elif(board[x][y].getColorOfFigure() != self.getFigCol()): attacks.append((x,y))
         return moves, attacks
     
