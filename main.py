@@ -1,9 +1,12 @@
 import pygame
 import sys
+
 import pygame_gui
+# import pygame_gui
 
 
 
+pygame.init() 
 from classes.logic.chessboard import chessboard
 from classes.logic.dicts import *
 from classes.pieces_path import pieces_paths
@@ -37,10 +40,10 @@ def draw_button(screen, x, y, width, height, text):
     screen.blit(button_text, text_rect)
 
 
-    # menu_display = pygame.Rect(0,0,WIDTH*10, HEIGHT)
-    menu_display = pygame.Surface((WIDTH*10, HEIGHT),0,0)
+    menu_display = pygame.Rect(0,0,WIDTH*10, HEIGHT)
+    # menu_display = pygame.Surface((WIDTH, HEIGHT), flags=0, depth=0)
 
-    menu_display.background(WHITE)
+    # menu_display.background(WHITE)
     screen.blit(screen, menu_display)
 
 
@@ -52,7 +55,7 @@ def main():
 
 
 
-    pygame.init() 
+    # pygame.init() 
     
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
     clock = pygame.time.Clock()
@@ -79,9 +82,6 @@ def main():
 
     is_running = True
     while is_running:
-        
-
-
         game_in_progress = False
 
         clock.tick(30)
@@ -89,6 +89,7 @@ def main():
         for a in range(len(MAIN_MENU_BUTTONS_POS)):
             x,y = MAIN_MENU_BUTTONS_POS[a]
             draw_button(screen, x,y, MAIN_MENU_BUT_WIDTH, MAIN_MENU_BUT_HEIGHT, MAIN_MENU_BUTTONS_NAMES[a])
+        # menu.blit(menu, (0, 0))   
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -101,13 +102,7 @@ def main():
                     res = cb.returnBoard()
                     game_in_progress = True
                     draw_chessboard(screen, res)
-                    
-
-
-
-
-        
-
+                
         # screen.blit(menu, (0, 0))
         pygame.display.update()
 

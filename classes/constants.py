@@ -14,11 +14,11 @@ MAIN_MENU_BUTTON_HOR_POS = WIDTH-200
 MAIN_MENU_BUT_WIDTH = 100
 MAIN_MENU_BUT_HEIGHT = 50
 MAIN_MENU_BUTTONS_POS = []
-MAIN_MENU_BUTTONS_NAMES = ['start', 'continue', 'stats', 'credits', 'quit']
-how_many_buttons = 5
+MAIN_MENU_BUTTONS_NAMES = ['start', 'continue', 'credits', 'quit']
+how_many_buttons = 4
 offset = 5*(10+MAIN_MENU_BUT_HEIGHT)+80
 tmp = HEIGHT
-for a in range(5):
+for a in range(4):
     MAIN_MENU_BUTTONS_POS.append((MAIN_MENU_BUTTON_HOR_POS, HEIGHT-offset))
     offset = offset -(MAIN_MENU_BUT_HEIGHT+10)
 
