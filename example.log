@@ -10812,3 +10812,240 @@
 01/19/2024 05:28:23 PM Launching Main.py
 01/19/2024 05:29:32 PM Launching Main.py
 01/19/2024 05:30:36 PM Launching Main.py
+01/26/2024 05:04:04 PM Launching Main.py
+01/26/2024 05:05:04 PM Launching Main.py
+01/26/2024 05:07:09 PM Launching Main.py
+01/26/2024 05:10:02 PM Launching Main.py
+01/26/2024 05:17:18 PM Launching Main.py
+01/26/2024 05:18:07 PM Launching Main.py
+01/26/2024 05:18:50 PM Launching Main.py
+01/26/2024 05:19:46 PM Launching Main.py
+01/26/2024 05:19:49 PM RenderPossibleMoves(): choosen figure: <classes.logic.piece.Pawn object at 0x000001B3FDB10950> moves and attacks before: ([], [])
+01/26/2024 05:19:49 PM Pawn attemping ReturnPossibleMoves() Method
+01/26/2024 05:19:49 PM Pawn Figure info: (6, 3, 'w', 'p')
+01/26/2024 05:19:49 PM Pawn attempting check on board[x-a][y]: True
+01/26/2024 05:19:49 PM Pawn attempting check on board[x-a][y]: <classes.logic.field.field object at 0x000001B3FDB03950> (5, 3)
+01/26/2024 05:19:49 PM Pawn (5, 3) is empty appended moves [(5, 3)]
+01/26/2024 05:19:49 PM Pawn attempting check on board[x-a][y]: True
+01/26/2024 05:19:49 PM Pawn attempting check on board[x-a][y]: <classes.logic.field.field object at 0x000001B3FDB03490> (4, 3)
+01/26/2024 05:19:49 PM Pawn (4, 3) is empty appended moves [(5, 3), (4, 3)]
+01/26/2024 05:19:49 PM Pawn ReturnPossibleMove(): returning values: ([(5, 3), (4, 3)], [])
+01/26/2024 05:19:49 PM RenderPossibleMoves(): moves and attacks after: ([(5, 3), (4, 3)], [])
+01/26/2024 05:28:54 PM Launching Main.py
+01/26/2024 05:28:58 PM RenderPossibleMoves(): choosen figure: <classes.logic.piece.Pawn object at 0x000002C57D6B09D0> moves and attacks before: ([], [])
+01/26/2024 05:28:58 PM Pawn attemping ReturnPossibleMoves() Method
+01/26/2024 05:28:58 PM Pawn Figure info: (6, 4, 'w', 'p')
+01/26/2024 05:28:58 PM Pawn attempting check on board[x-a][y]: True
+01/26/2024 05:28:58 PM Pawn attempting check on board[x-a][y]: <classes.logic.field.field object at 0x000002C57D6A3B10> (5, 4)
+01/26/2024 05:28:58 PM Pawn (5, 4) is empty appended moves [(5, 4)]
+01/26/2024 05:28:58 PM Pawn attempting check on board[x-a][y]: True
+01/26/2024 05:28:58 PM Pawn attempting check on board[x-a][y]: <classes.logic.field.field object at 0x000002C57D6A3650> (4, 4)
+01/26/2024 05:28:58 PM Pawn (4, 4) is empty appended moves [(5, 4), (4, 4)]
+01/26/2024 05:28:58 PM Pawn ReturnPossibleMove(): returning values: ([(5, 4), (4, 4)], [])
+01/26/2024 05:28:58 PM RenderPossibleMoves(): moves and attacks after: ([(5, 4), (4, 4)], [])
+01/26/2024 05:29:02 PM RenderPossibleMoves(): choosen figure: <classes.logic.piece.Pawn object at 0x000002C57D6B09D0> moves and attacks before: ([(5, 4), (4, 4)], [])
+01/26/2024 05:29:02 PM Pawn attemping ReturnPossibleMoves() Method
+01/26/2024 05:29:02 PM Pawn Figure info: (6, 4, 'w', 'p')
+01/26/2024 05:29:02 PM Pawn attempting check on board[x-a][y]: True
+01/26/2024 05:29:02 PM Pawn attempting check on board[x-a][y]: <classes.logic.field.field object at 0x000002C57D6A3B10> (5, 4)
+01/26/2024 05:29:02 PM Pawn (5, 4) is empty appended moves [(5, 4)]
+01/26/2024 05:29:02 PM Pawn attempting check on board[x-a][y]: True
+01/26/2024 05:29:02 PM Pawn attempting check on board[x-a][y]: <classes.logic.field.field object at 0x000002C57D6A3650> (4, 4)
+01/26/2024 05:29:02 PM Pawn (4, 4) is empty appended moves [(5, 4), (4, 4)]
+01/26/2024 05:29:02 PM Pawn ReturnPossibleMove(): returning values: ([(5, 4), (4, 4)], [])
+01/26/2024 05:29:02 PM RenderPossibleMoves(): moves and attacks after: ([(5, 4), (4, 4)], [])
+01/26/2024 05:29:02 PM RenderPossibleMoves(): choosen figure: <classes.logic.piece.Queen object at 0x000002C57D6B0750> moves and attacks before: ([], [])
+01/26/2024 05:29:02 PM RenderPossibleMoves(): moves and attacks after: ([], [])
+01/26/2024 05:29:04 PM RenderPossibleMoves(): choosen figure: <classes.logic.piece.Pawn object at 0x000002C57D2C1D50> moves and attacks before: ([], [])
+01/26/2024 05:29:04 PM Pawn attemping ReturnPossibleMoves() Method
+01/26/2024 05:29:04 PM Pawn Figure info: (1, 3, 'b', 'p')
+01/26/2024 05:29:04 PM Pawn attempting check on board[x-a][y]: True
+01/26/2024 05:29:04 PM Pawn attempting check on board[x-a][y]: <classes.logic.field.field object at 0x000002C57D6A2CD0> (2, 3)
+01/26/2024 05:29:04 PM Pawn (2, 3) is empty appended moves [(2, 3)]
+01/26/2024 05:29:04 PM Pawn attempting check on board[x-a][y]: True
+01/26/2024 05:29:04 PM Pawn attempting check on board[x-a][y]: <classes.logic.field.field object at 0x000002C57D6A3150> (3, 3)
+01/26/2024 05:29:04 PM Pawn (3, 3) is empty appended moves [(2, 3), (3, 3)]
+01/26/2024 05:29:04 PM Pawn ReturnPossibleMove(): returning values: ([(2, 3), (3, 3)], [])
+01/26/2024 05:29:04 PM RenderPossibleMoves(): moves and attacks after: ([(2, 3), (3, 3)], [])
+01/26/2024 05:29:05 PM RenderPossibleMoves(): choosen figure: <classes.logic.piece.Pawn object at 0x000002C57D6B0950> moves and attacks before: ([], [])
+01/26/2024 05:29:05 PM Pawn attemping ReturnPossibleMoves() Method
+01/26/2024 05:29:05 PM Pawn Figure info: (6, 2, 'w', 'p')
+01/26/2024 05:29:05 PM Pawn attempting check on board[x-a][y]: True
+01/26/2024 05:29:05 PM Pawn attempting check on board[x-a][y]: <classes.logic.field.field object at 0x000002C57D6A3A10> (5, 2)
+01/26/2024 05:29:05 PM Pawn (5, 2) is empty appended moves [(5, 2)]
+01/26/2024 05:29:05 PM Pawn attempting check on board[x-a][y]: True
+01/26/2024 05:29:05 PM Pawn attempting check on board[x-a][y]: <classes.logic.field.field object at 0x000002C57D6A3550> (4, 2)
+01/26/2024 05:29:05 PM Pawn (4, 2) is empty appended moves [(5, 2), (4, 2)]
+01/26/2024 05:29:05 PM Pawn ReturnPossibleMove(): returning values: ([(5, 2), (4, 2)], [])
+01/26/2024 05:29:05 PM RenderPossibleMoves(): moves and attacks after: ([(5, 2), (4, 2)], [])
+01/26/2024 05:29:06 PM RenderPossibleMoves(): choosen figure: <classes.logic.piece.Pawn object at 0x000002C57D296750> moves and attacks before: ([], [])
+01/26/2024 05:29:06 PM Pawn attemping ReturnPossibleMoves() Method
+01/26/2024 05:29:06 PM Pawn Figure info: (1, 2, 'b', 'p')
+01/26/2024 05:29:06 PM Pawn attempting check on board[x-a][y]: True
+01/26/2024 05:29:06 PM Pawn attempting check on board[x-a][y]: <classes.logic.field.field object at 0x000002C57D6A2C50> (2, 2)
+01/26/2024 05:29:06 PM Pawn (2, 2) is empty appended moves [(2, 2)]
+01/26/2024 05:29:06 PM Pawn attempting check on board[x-a][y]: True
+01/26/2024 05:29:06 PM Pawn attempting check on board[x-a][y]: <classes.logic.field.field object at 0x000002C57D6A30D0> (3, 2)
+01/26/2024 05:29:06 PM Pawn (3, 2) is empty appended moves [(2, 2), (3, 2)]
+01/26/2024 05:29:06 PM Pawn ReturnPossibleMove(): returning values: ([(2, 2), (3, 2)], [])
+01/26/2024 05:29:06 PM RenderPossibleMoves(): moves and attacks after: ([(2, 2), (3, 2)], [])
+01/26/2024 05:29:07 PM RenderPossibleMoves(): choosen figure: <classes.logic.piece.Pawn object at 0x000002C57D6B0950> moves and attacks before: ([], [])
+01/26/2024 05:29:07 PM Pawn attemping ReturnPossibleMoves() Method
+01/26/2024 05:29:07 PM Pawn Figure info: (4, 2, 'w', 'p')
+01/26/2024 05:29:07 PM Pawn attempting check on board[x-a][y]: False
+01/26/2024 05:29:07 PM Pawn attempting check on board[x-a][y]: <classes.logic.field.field object at 0x000002C57D6A30D0> (3, 2)
+01/26/2024 05:29:07 PM Pawn ReturnPossibleMove(): returning values: ([], [(3, 3)])
+01/26/2024 05:29:07 PM RenderPossibleMoves(): moves and attacks after: ([], [(3, 3)])
+01/26/2024 05:30:00 PM Launching Main.py
+01/26/2024 05:30:30 PM Launching Main.py
+01/26/2024 05:31:16 PM RenderPossibleMoves(): choosen figure: <classes.logic.piece.Pawn object at 0x0000013338814250> moves and attacks before: ([], [])
+01/26/2024 05:31:16 PM Pawn attemping ReturnPossibleMoves() Method
+01/26/2024 05:31:16 PM Pawn Figure info: (6, 5, 'w', 'p')
+01/26/2024 05:31:16 PM Pawn attempting check on board[x-a][y]: True
+01/26/2024 05:31:16 PM Pawn attempting check on board[x-a][y]: <classes.logic.field.field object at 0x0000013338807410> (5, 5)
+01/26/2024 05:31:16 PM Pawn (5, 5) is empty appended moves [(5, 5)]
+01/26/2024 05:31:16 PM Pawn attempting check on board[x-a][y]: True
+01/26/2024 05:31:16 PM Pawn attempting check on board[x-a][y]: <classes.logic.field.field object at 0x0000013338806F50> (4, 5)
+01/26/2024 05:31:16 PM Pawn (4, 5) is empty appended moves [(5, 5), (4, 5)]
+01/26/2024 05:31:16 PM Pawn ReturnPossibleMove(): returning values: ([(5, 5), (4, 5)], [])
+01/26/2024 05:31:16 PM RenderPossibleMoves(): moves and attacks after: ([(5, 5), (4, 5)], [])
+01/26/2024 05:32:36 PM Launching Main.py
+01/26/2024 05:32:39 PM Launching Main.py
+01/26/2024 05:32:49 PM Launching Main.py
+01/26/2024 05:32:51 PM Launching Main.py
+01/26/2024 05:34:02 PM Launching Main.py
+01/26/2024 05:34:22 PM Launching Main.py
+01/26/2024 05:35:36 PM Launching Main.py
+01/26/2024 05:35:37 PM Launching Main.py
+01/26/2024 05:36:05 PM Launching Main.py
+01/26/2024 05:36:06 PM RenderPossibleMoves(): choosen figure: <classes.logic.piece.Pawn object at 0x0000021156057E10> moves and attacks before: ([], [])
+01/26/2024 05:36:06 PM Pawn attemping ReturnPossibleMoves() Method
+01/26/2024 05:36:06 PM Pawn Figure info: (6, 3, 'w', 'p')
+01/26/2024 05:36:06 PM Pawn attempting check on board[x-a][y]: True
+01/26/2024 05:36:06 PM Pawn attempting check on board[x-a][y]: <classes.logic.field.field object at 0x0000021156056ED0> (5, 3)
+01/26/2024 05:36:06 PM Pawn (5, 3) is empty appended moves [(5, 3)]
+01/26/2024 05:36:06 PM Pawn attempting check on board[x-a][y]: True
+01/26/2024 05:36:06 PM Pawn attempting check on board[x-a][y]: <classes.logic.field.field object at 0x0000021156056A10> (4, 3)
+01/26/2024 05:36:06 PM Pawn (4, 3) is empty appended moves [(5, 3), (4, 3)]
+01/26/2024 05:36:06 PM Pawn ReturnPossibleMove(): returning values: ([(5, 3), (4, 3)], [])
+01/26/2024 05:36:06 PM RenderPossibleMoves(): moves and attacks after: ([(5, 3), (4, 3)], [])
+01/26/2024 05:36:07 PM RenderPossibleMoves(): choosen figure: <classes.logic.piece.Pawn object at 0x0000021155C7F050> moves and attacks before: ([], [])
+01/26/2024 05:36:07 PM Pawn attemping ReturnPossibleMoves() Method
+01/26/2024 05:36:07 PM Pawn Figure info: (1, 2, 'b', 'p')
+01/26/2024 05:36:07 PM Pawn attempting check on board[x-a][y]: True
+01/26/2024 05:36:07 PM Pawn attempting check on board[x-a][y]: <classes.logic.field.field object at 0x0000021156056090> (2, 2)
+01/26/2024 05:36:07 PM Pawn (2, 2) is empty appended moves [(2, 2)]
+01/26/2024 05:36:07 PM Pawn attempting check on board[x-a][y]: True
+01/26/2024 05:36:07 PM Pawn attempting check on board[x-a][y]: <classes.logic.field.field object at 0x0000021156056510> (3, 2)
+01/26/2024 05:36:07 PM Pawn (3, 2) is empty appended moves [(2, 2), (3, 2)]
+01/26/2024 05:36:07 PM Pawn ReturnPossibleMove(): returning values: ([(2, 2), (3, 2)], [])
+01/26/2024 05:36:07 PM RenderPossibleMoves(): moves and attacks after: ([(2, 2), (3, 2)], [])
+01/26/2024 05:36:08 PM RenderPossibleMoves(): choosen figure: <classes.logic.piece.Pawn object at 0x0000021156057E10> moves and attacks before: ([], [])
+01/26/2024 05:36:08 PM Pawn attemping ReturnPossibleMoves() Method
+01/26/2024 05:36:08 PM Pawn Figure info: (4, 3, 'w', 'p')
+01/26/2024 05:36:08 PM Pawn attempting check on board[x-a][y]: True
+01/26/2024 05:36:08 PM Pawn attempting check on board[x-a][y]: <classes.logic.field.field object at 0x0000021156056590> (3, 3)
+01/26/2024 05:36:08 PM Pawn (3, 3) is empty appended moves [(3, 3)]
+01/26/2024 05:36:08 PM Pawn ReturnPossibleMove(): returning values: ([(3, 3)], [(3, 2)])
+01/26/2024 05:36:08 PM RenderPossibleMoves(): moves and attacks after: ([(3, 3)], [(3, 2)])
+01/26/2024 05:36:09 PM RenderPossibleMoves(): choosen figure: <classes.logic.piece.Pawn object at 0x0000021155C6E7D0> moves and attacks before: ([], [])
+01/26/2024 05:36:09 PM Pawn attemping ReturnPossibleMoves() Method
+01/26/2024 05:36:09 PM Pawn Figure info: (1, 1, 'b', 'p')
+01/26/2024 05:36:09 PM Pawn attempting check on board[x-a][y]: True
+01/26/2024 05:36:09 PM Pawn attempting check on board[x-a][y]: <classes.logic.field.field object at 0x0000021156056010> (2, 1)
+01/26/2024 05:36:09 PM Pawn (2, 1) is empty appended moves [(2, 1)]
+01/26/2024 05:36:09 PM Pawn attempting check on board[x-a][y]: True
+01/26/2024 05:36:09 PM Pawn attempting check on board[x-a][y]: <classes.logic.field.field object at 0x0000021156056490> (3, 1)
+01/26/2024 05:36:09 PM Pawn (3, 1) is empty appended moves [(2, 1), (3, 1)]
+01/26/2024 05:36:09 PM Pawn ReturnPossibleMove(): returning values: ([(2, 1), (3, 1)], [])
+01/26/2024 05:36:09 PM RenderPossibleMoves(): moves and attacks after: ([(2, 1), (3, 1)], [])
+01/26/2024 05:36:09 PM RenderPossibleMoves(): choosen figure: <classes.logic.piece.Pawn object at 0x0000021156057E10> moves and attacks before: ([], [])
+01/26/2024 05:36:09 PM Pawn attemping ReturnPossibleMoves() Method
+01/26/2024 05:36:09 PM Pawn Figure info: (3, 2, 'w', 'p')
+01/26/2024 05:36:09 PM Pawn attempting check on board[x-a][y]: True
+01/26/2024 05:36:09 PM Pawn attempting check on board[x-a][y]: <classes.logic.field.field object at 0x0000021156056090> (2, 2)
+01/26/2024 05:36:09 PM Pawn (2, 2) is empty appended moves [(2, 2)]
+01/26/2024 05:36:09 PM Pawn ReturnPossibleMove(): returning values: ([(2, 2)], [(2, 1)])
+01/26/2024 05:36:09 PM RenderPossibleMoves(): moves and attacks after: ([(2, 2)], [(2, 1)])
+01/26/2024 05:36:13 PM RenderPossibleMoves(): choosen figure: <classes.logic.piece.Pawn object at 0x0000021156057BD0> moves and attacks before: ([], [])
+01/26/2024 05:36:13 PM Pawn attemping ReturnPossibleMoves() Method
+01/26/2024 05:36:13 PM Pawn Figure info: (1, 0, 'b', 'p')
+01/26/2024 05:36:13 PM Pawn attempting check on board[x-a][y]: True
+01/26/2024 05:36:13 PM Pawn attempting check on board[x-a][y]: <classes.logic.field.field object at 0x0000021156055F90> (2, 0)
+01/26/2024 05:36:13 PM Pawn (2, 0) is empty appended moves [(2, 0)]
+01/26/2024 05:36:13 PM Pawn attempting check on board[x-a][y]: True
+01/26/2024 05:36:13 PM Pawn attempting check on board[x-a][y]: <classes.logic.field.field object at 0x0000021156056410> (3, 0)
+01/26/2024 05:36:13 PM Pawn (3, 0) is empty appended moves [(2, 0), (3, 0)]
+01/26/2024 05:36:13 PM Pawn ReturnPossibleMove(): returning values: ([(2, 0), (3, 0)], [(2, 1)])
+01/26/2024 05:36:13 PM RenderPossibleMoves(): moves and attacks after: ([(2, 0), (3, 0)], [(2, 1)])
+01/26/2024 05:36:15 PM RenderPossibleMoves(): choosen figure: <classes.logic.piece.Queen object at 0x0000021156057B10> moves and attacks before: ([], [])
+01/26/2024 05:36:15 PM RenderPossibleMoves(): moves and attacks after: ([(6, 3), (5, 3), (4, 3), (3, 3), (2, 3)], [(1, 3)])
+01/26/2024 05:36:16 PM RenderPossibleMoves(): choosen figure: <classes.logic.piece.Pawn object at 0x0000021156057BD0> moves and attacks before: ([], [])
+01/26/2024 05:36:16 PM Pawn attemping ReturnPossibleMoves() Method
+01/26/2024 05:36:16 PM Pawn Figure info: (2, 1, 'b', 'p')
+01/26/2024 05:36:16 PM Pawn attempting check on board[x-a][y]: True
+01/26/2024 05:36:16 PM Pawn attempting check on board[x-a][y]: <classes.logic.field.field object at 0x0000021156056490> (3, 1)
+01/26/2024 05:36:16 PM Pawn (3, 1) is empty appended moves [(3, 1)]
+01/26/2024 05:36:16 PM Pawn ReturnPossibleMove(): returning values: ([(3, 1)], [])
+01/26/2024 05:36:16 PM RenderPossibleMoves(): moves and attacks after: ([(3, 1)], [])
+01/26/2024 05:36:18 PM RenderPossibleMoves(): choosen figure: <classes.logic.piece.Pawn object at 0x0000021156057DD0> moves and attacks before: ([], [])
+01/26/2024 05:36:18 PM Pawn attemping ReturnPossibleMoves() Method
+01/26/2024 05:36:18 PM Pawn Figure info: (6, 2, 'w', 'p')
+01/26/2024 05:36:18 PM Pawn attempting check on board[x-a][y]: True
+01/26/2024 05:36:18 PM Pawn attempting check on board[x-a][y]: <classes.logic.field.field object at 0x0000021156056E50> (5, 2)
+01/26/2024 05:36:18 PM Pawn (5, 2) is empty appended moves [(5, 2)]
+01/26/2024 05:36:18 PM Pawn attempting check on board[x-a][y]: True
+01/26/2024 05:36:18 PM Pawn attempting check on board[x-a][y]: <classes.logic.field.field object at 0x0000021156056990> (4, 2)
+01/26/2024 05:36:18 PM Pawn (4, 2) is empty appended moves [(5, 2), (4, 2)]
+01/26/2024 05:36:18 PM Pawn ReturnPossibleMove(): returning values: ([(5, 2), (4, 2)], [])
+01/26/2024 05:36:18 PM RenderPossibleMoves(): moves and attacks after: ([(5, 2), (4, 2)], [])
+01/26/2024 05:36:19 PM RenderPossibleMoves(): choosen figure: <classes.logic.piece.Pawn object at 0x0000021156057BD0> moves and attacks before: ([], [])
+01/26/2024 05:36:19 PM Pawn attemping ReturnPossibleMoves() Method
+01/26/2024 05:36:19 PM Pawn Figure info: (3, 1, 'b', 'p')
+01/26/2024 05:36:19 PM Pawn attempting check on board[x-a][y]: True
+01/26/2024 05:36:19 PM Pawn attempting check on board[x-a][y]: <classes.logic.field.field object at 0x0000021156056910> (4, 1)
+01/26/2024 05:36:19 PM Pawn (4, 1) is empty appended moves [(4, 1)]
+01/26/2024 05:36:19 PM Pawn ReturnPossibleMove(): returning values: ([(4, 1)], [(4, 2)])
+01/26/2024 05:36:19 PM RenderPossibleMoves(): moves and attacks after: ([(4, 1)], [(4, 2)])
+01/26/2024 05:49:43 PM RenderPossibleMoves(): choosen figure: <classes.logic.piece.Pawn object at 0x0000021156057E50> moves and attacks before: ([], [])
+01/26/2024 05:49:43 PM Pawn attemping ReturnPossibleMoves() Method
+01/26/2024 05:49:43 PM Pawn Figure info: (6, 4, 'w', 'p')
+01/26/2024 05:49:43 PM Pawn attempting check on board[x-a][y]: True
+01/26/2024 05:49:43 PM Pawn attempting check on board[x-a][y]: <classes.logic.field.field object at 0x0000021156056F50> (5, 4)
+01/26/2024 05:49:43 PM Pawn (5, 4) is empty appended moves [(5, 4)]
+01/26/2024 05:49:43 PM Pawn attempting check on board[x-a][y]: True
+01/26/2024 05:49:43 PM Pawn attempting check on board[x-a][y]: <classes.logic.field.field object at 0x0000021156056A90> (4, 4)
+01/26/2024 05:49:43 PM Pawn (4, 4) is empty appended moves [(5, 4), (4, 4)]
+01/26/2024 05:49:43 PM Pawn ReturnPossibleMove(): returning values: ([(5, 4), (4, 4)], [])
+01/26/2024 05:49:43 PM RenderPossibleMoves(): moves and attacks after: ([(5, 4), (4, 4)], [])
+01/26/2024 05:49:44 PM RenderPossibleMoves(): choosen figure: <classes.logic.piece.Pawn object at 0x0000021156057C50> moves and attacks before: ([], [])
+01/26/2024 05:49:44 PM Pawn attemping ReturnPossibleMoves() Method
+01/26/2024 05:49:44 PM Pawn Figure info: (1, 4, 'b', 'p')
+01/26/2024 05:49:44 PM Pawn attempting check on board[x-a][y]: True
+01/26/2024 05:49:44 PM Pawn attempting check on board[x-a][y]: <classes.logic.field.field object at 0x0000021156056190> (2, 4)
+01/26/2024 05:49:44 PM Pawn (2, 4) is empty appended moves [(2, 4)]
+01/26/2024 05:49:44 PM Pawn attempting check on board[x-a][y]: True
+01/26/2024 05:49:44 PM Pawn attempting check on board[x-a][y]: <classes.logic.field.field object at 0x0000021156056610> (3, 4)
+01/26/2024 05:49:44 PM Pawn (3, 4) is empty appended moves [(2, 4), (3, 4)]
+01/26/2024 05:49:44 PM Pawn ReturnPossibleMove(): returning values: ([(2, 4), (3, 4)], [])
+01/26/2024 05:49:44 PM RenderPossibleMoves(): moves and attacks after: ([(2, 4), (3, 4)], [])
+01/26/2024 05:49:45 PM RenderPossibleMoves(): choosen figure: <classes.logic.piece.Queen object at 0x0000021156057B10> moves and attacks before: ([], [])
+01/26/2024 05:49:45 PM RenderPossibleMoves(): moves and attacks after: ([(2, 3), (3, 3), (4, 3), (5, 3), (6, 3), (7, 3), (1, 2), (1, 1), (1, 0), (1, 4), (2, 4), (3, 5), (4, 6), (5, 7), (2, 2), (3, 1), (4, 0)], [(0, 3), (1, 5), (0, 2), (0, 4)])
+01/26/2024 05:49:47 PM RenderPossibleMoves(): choosen figure: <classes.logic.piece.Pawn object at 0x0000021156057C50> moves and attacks before: ([], [])
+01/26/2024 05:49:47 PM Pawn attemping ReturnPossibleMoves() Method
+01/26/2024 05:49:47 PM Pawn Figure info: (3, 4, 'b', 'p')
+01/26/2024 05:49:47 PM Pawn attempting check on board[x-a][y]: False
+01/26/2024 05:49:47 PM Pawn attempting check on board[x-a][y]: <classes.logic.field.field object at 0x0000021156056A90> (4, 4)
+01/26/2024 05:49:47 PM Pawn ReturnPossibleMove(): returning values: ([], [])
+01/26/2024 05:49:47 PM RenderPossibleMoves(): moves and attacks after: ([], [])
+01/26/2024 05:49:48 PM RenderPossibleMoves(): choosen figure: <classes.logic.piece.Pawn object at 0x0000021156057C50> moves and attacks before: ([], [])
+01/26/2024 05:49:48 PM Pawn attemping ReturnPossibleMoves() Method
+01/26/2024 05:49:48 PM Pawn Figure info: (3, 4, 'b', 'p')
+01/26/2024 05:49:48 PM Pawn attempting check on board[x-a][y]: False
+01/26/2024 05:49:48 PM Pawn attempting check on board[x-a][y]: <classes.logic.field.field object at 0x0000021156056A90> (4, 4)
+01/26/2024 05:49:48 PM Pawn ReturnPossibleMove(): returning values: ([], [])
+01/26/2024 05:49:48 PM RenderPossibleMoves(): moves and attacks after: ([], [])
+01/26/2024 05:49:49 PM RenderPossibleMoves(): choosen figure: <classes.logic.piece.King object at 0x0000021155C6EB50> moves and attacks before: ([], [])
+01/26/2024 05:49:49 PM RenderPossibleMoves(): moves and attacks after: ([(1, 3), (1, 4)], [(0, 3)])
+01/26/2024 05:49:51 PM RenderPossibleMoves(): choosen figure: <classes.logic.piece.King object at 0x0000021156064090> moves and attacks before: ([], [])
+01/26/2024 05:49:51 PM RenderPossibleMoves(): moves and attacks after: ([(6, 3), (6, 4), (7, 3)], [])
